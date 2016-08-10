@@ -176,7 +176,7 @@ function Jimp() {
         var that = this;
         Request(url, function (err, response, data) {
             if (err) return throwError.call(that, err, cb);
-            if ("object" == typeof data && Buffer.isBuffer(data)) {
+            if ("object" == typeof data) {
                 var mime = getMIMEFromBuffer(data);
                 if ("string" != typeof mime)
                     return throwError.call(that, "Could not find MIME for Buffer <" + url + "> (HTTP: " + response.statusCode + ")", cb);
